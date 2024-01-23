@@ -1,0 +1,7 @@
+D:\CODES\NET\TestingConsoleApp\TestingConsoleApp\obj\Debug\TestingConsoleApp.csproj.AssemblyReference.cache
+D:\CODES\NET\TestingConsoleApp\TestingConsoleApp\obj\Debug\TestingConsoleApp.csproj.CoreCompileInputs.cache
+D:\CODES\NET\TestingConsoleApp\TestingConsoleApp\bin\Debug\TestingConsoleApp.exe.config
+D:\CODES\NET\TestingConsoleApp\TestingConsoleApp\bin\Debug\TestingConsoleApp.exe
+D:\CODES\NET\TestingConsoleApp\TestingConsoleApp\bin\Debug\TestingConsoleApp.pdb
+D:\CODES\NET\TestingConsoleApp\TestingConsoleApp\obj\Debug\TestingConsoleApp.exe
+D:\CODES\NET\TestingConsoleApp\TestingConsoleApp\obj\Debug\TestingConsoleApp.pdb
