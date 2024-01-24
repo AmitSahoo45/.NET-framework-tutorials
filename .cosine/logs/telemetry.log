@@ -1,0 +1,44 @@
+
+INFO [2024-01-23T16:17:05.491Z]: Preparing to initialize extension
+INFO [2024-01-23T16:17:06.493Z]: Registering flag observer
+INFO [2024-01-23T16:17:06.495Z]: Navigating to loading page
+INFO [2024-01-23T16:17:06.495Z]: Navigation
+INFO [2024-01-23T16:17:06.495Z]: {"page":"/loading"}
+INFO [2024-01-23T16:17:06.495Z]: Initializing workspace controller
+INFO [2024-01-23T16:17:06.501Z]: Creating URI handler
+INFO [2024-01-23T16:17:06.501Z]: Getting auth service props
+INFO [2024-01-23T16:17:06.505Z]: Creating auth service
+INFO [2024-01-23T16:17:06.505Z]: Setting network auth service
+INFO [2024-01-23T16:17:06.505Z]: Creating context store
+INFO [2024-01-23T16:17:06.505Z]: Creating engine
+INFO [2024-01-23T16:17:06.506Z]: Creating sql db
+INFO [2024-01-23T16:17:06.643Z]: Creating vector db
+INFO [2024-01-23T16:17:06.643Z]: Creating config manager
+INFO [2024-01-23T16:17:06.646Z]: Get languages
+INFO [2024-01-23T16:17:06.646Z]: Reading ALL files
+INFO [2024-01-23T16:17:06.744Z]: Files: 59
+INFO [2024-01-23T16:17:06.744Z]: Counting languages
+INFO [2024-01-23T16:17:06.746Z]: Sorting languages
+INFO [2024-01-23T16:17:06.746Z]: Get Overview
+INFO [2024-01-23T16:17:06.747Z]: Creating code parser
+INFO [2024-01-23T16:17:06.747Z]: Creating code index
+INFO [2024-01-23T16:17:06.749Z]: Creating graphs
+INFO [2024-01-23T16:17:06.749Z]: Creating tagger
+INFO [2024-01-23T16:17:06.749Z]: Creating semantic
+INFO [2024-01-23T16:17:06.750Z]: Creating keyword
+INFO [2024-01-23T16:17:06.750Z]: Creating file search
+INFO [2024-01-23T16:17:06.750Z]: Initializing engine
+INFO [2024-01-23T16:17:06.958Z]: [CodeTagger.init] Initializing
+INFO [2024-01-23T16:17:06.960Z]: Initializing history service
+INFO [2024-01-23T16:17:06.960Z]: Creating project bot props
+INFO [2024-01-23T16:17:06.960Z]: Creating plan service
+INFO [2024-01-23T16:17:06.960Z]: Creating terms service
+INFO [2024-01-23T16:17:06.960Z]: Creating auth controller
+INFO [2024-01-23T16:17:06.960Z]: Initializing auth controller
+INFO [2024-01-23T16:17:06.961Z]: Checking auth
+INFO [2024-01-23T16:17:08.095Z]: Network Error: /auth/google/refresh
+INFO [2024-01-23T16:17:08.096Z]: {"url":"/auth/google/refresh","attempts":0}
+ERROR [2024-01-23T16:17:08.117Z]: {"statusCode":400,"message":"TOKEN_EXPIRED","error":"Bad Request"}
+INFO [2024-01-23T16:17:08.118Z]: Navigation
+INFO [2024-01-23T16:17:08.118Z]: {"page":"/initial-error"}
+ERROR [2024-01-23T16:17:08.124Z]: {"statusCode":400,"message":"TOKEN_EXPIRED","error":"Bad Request"}

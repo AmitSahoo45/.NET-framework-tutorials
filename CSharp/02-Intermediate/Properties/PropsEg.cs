@@ -35,7 +35,7 @@ namespace NETTraining.OOPs.Properties
 
         // when we are setting a property private here, the property can no longer be changed
         // we xan use the parametereised cons
-        // this has become a readonly prop
+        // this has become a readonly prop now
         // potential question - guess the op set it to readonly and error
 
         public bool sex { get; set; }
