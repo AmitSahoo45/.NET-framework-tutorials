@@ -60,3 +60,5 @@ Lets take the above example. We declare Shape as abstract and make Draw() an abs
 So any dev who will inherit Shape class, has to provide a definition for Draw() method.
 
 > if we don't override the abstract method, we will get an error
+
+-------------------------------------------------------------------------
