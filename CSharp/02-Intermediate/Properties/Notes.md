@@ -36,3 +36,9 @@ public bool sex { get; set; }
 
 when c# compiler sees this it internally creates a private field for this.
 
+### Properties of Interfaces
+- Code readability: Interface constitutes a declaration about your intentions, so it defines the capability of your class. 
+- Code semantics: Interface defines the semantics of your class, so it defines the meaning of your class. It defines what your class should look like and what your objects should do. Making the code a lot clearer. 
+- Code maintainability - Help reduce coupling and easily exchange implemtations without the underlying code being affected.
+- Design Pattern: Using contracts, abstracts and interfaces you can design and implement a lot of design patterns.
+- Multiple inheritance: C# does not support multiple inheritance, but it does support multiple interface inheritance. Interface can be our gateaway to multiple inheritance. 

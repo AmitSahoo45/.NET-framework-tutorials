@@ -58,13 +58,20 @@ public class InterfaceExec
     }
 
     // Chair Class
-    class Chair : Furniture
+    class Chair : Furniture, IDestroyable
     {
-        public Chair(string color, string material)
+        public string DestructionSound { get; set; }
+
+        public Chair(string color, string material) : base("Chair", color, material)
         {
-            this.furnitureType = "Chair";
-            this.color = color;
-            this.material = material;
+            DestructionSound = "ChairBreakSound.mp3";
+        }
+
+        public void Destroy()
+        {
+            Console.WriteLine("Chair is destroyed");
+            Console.WriteLine("Playing destruction sound");
+            Console.WriteLine("Spawning chain parts");
         }
     }
 
@@ -144,7 +151,19 @@ public class InterfaceExec
             // Console.WriteLine(t1.Equals(t2)); 
 
             // Creating our own interfaces. 
+            // ---------------------------------
+            Chair officeChair = new Chair("Brown", "Plastic");
+            Chair gamingChair = new Chair("Red", "Wood");
 
+            Car damagedCar = new Car(100f, "Red");
+            damagedCar.DestroyableObjects.Add(officeChair);
+            damagedCar.DestroyableObjects.Add(gamingChair);
+
+            damagedCar.Destroy();
         }
     }
 }
+
+/*
+ * Interfaces are some sort of multiple inheritance even though it is not.
+ */
