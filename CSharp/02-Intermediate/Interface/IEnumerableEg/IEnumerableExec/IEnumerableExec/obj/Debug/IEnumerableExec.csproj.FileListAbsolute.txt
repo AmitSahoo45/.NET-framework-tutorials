@@ -1,0 +1,7 @@
+D:\CODES\NET\CSharp\02-Intermediate\Interface\IEnumerableEg\IEnumerableExec\IEnumerableExec\bin\Debug\IEnumerableExec.exe.config
+D:\CODES\NET\CSharp\02-Intermediate\Interface\IEnumerableEg\IEnumerableExec\IEnumerableExec\bin\Debug\IEnumerableExec.exe
+D:\CODES\NET\CSharp\02-Intermediate\Interface\IEnumerableEg\IEnumerableExec\IEnumerableExec\bin\Debug\IEnumerableExec.pdb
+D:\CODES\NET\CSharp\02-Intermediate\Interface\IEnumerableEg\IEnumerableExec\IEnumerableExec\obj\Debug\IEnumerableExec.csproj.AssemblyReference.cache
+D:\CODES\NET\CSharp\02-Intermediate\Interface\IEnumerableEg\IEnumerableExec\IEnumerableExec\obj\Debug\IEnumerableExec.csproj.CoreCompileInputs.cache
+D:\CODES\NET\CSharp\02-Intermediate\Interface\IEnumerableEg\IEnumerableExec\IEnumerableExec\obj\Debug\IEnumerableExec.exe
+D:\CODES\NET\CSharp\02-Intermediate\Interface\IEnumerableEg\IEnumerableExec\IEnumerableExec\obj\Debug\IEnumerableExec.pdb
