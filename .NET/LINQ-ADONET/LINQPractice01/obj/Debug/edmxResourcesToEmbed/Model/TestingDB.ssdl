@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PracticeDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Professor">
+    <Key>
+      <PropertyRef Name="ProfessorId" />
+    </Key>
+    <Property Name="ProfessorId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Profname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProfSal" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="ProfessorId" />
+    </Key>
+    <Property Name="ProfessorId" Type="int" Nullable="false" />
+    <Property Name="EmpName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ratings" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="EmpUnique" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TempEmp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Salary" Type="int" Nullable="false" />
+    <Property Name="EmpUnique" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TempF1Drivers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Team" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="S1" Type="float" Nullable="false" />
+    <Property Name="S2" Type="float" Nullable="false" />
+    <Property Name="S3" Type="float" Nullable="false" />
+    <Property Name="S1Pod" Type="int" Nullable="false" />
+    <Property Name="S2Pod" Type="int" Nullable="false" />
+    <Property Name="S3Pod" Type="int" Nullable="false" />
+    <Property Name="Nationality" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TempStudent">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="StdName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Stdcgpa" Type="float" Nullable="false" />
+    <Property Name="StdSem" Type="int" Nullable="false" />
+    <Property Name="ProfId" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_TempStudent_Professor">
+    <End Role="Professor" Type="Self.Professor" Multiplicity="1" />
+    <End Role="TempStudent" Type="Self.TempStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professor">
+        <PropertyRef Name="ProfessorId" />
+      </Principal>
+      <Dependent Role="TempStudent">
+        <PropertyRef Name="ProfId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="getAllEmps" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getPlayerX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="plyname" Type="float" Mode="In" />
+  </Function>
+  <Function Name="sp_CalculateF1DriverAvgSpeeds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetAllEmps" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_getEmpsSalaryGtX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sal" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetStudentUnderXProfAndYcgpa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="profId" Type="varchar" Mode="In" />
+    <Parameter Name="CGPA" Type="float" Mode="In" />
+  </Function>
+  <EntityContainer Name="PracticeDBModelStoreContainer">
+    <EntitySet Name="Professor" EntityType="Self.Professor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TempEmp" EntityType="Self.TempEmp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TempF1Drivers" EntityType="Self.TempF1Drivers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TempStudent" EntityType="Self.TempStudent" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TempStudent_Professor" Association="Self.FK_TempStudent_Professor">
+      <End Role="Professor" EntitySet="Professor" />
+      <End Role="TempStudent" EntitySet="TempStudent" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

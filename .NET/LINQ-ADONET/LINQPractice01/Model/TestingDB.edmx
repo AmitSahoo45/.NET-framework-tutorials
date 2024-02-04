@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PracticeDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Professor">
+          <Key>
+            <PropertyRef Name="ProfessorId" />
+          </Key>
+          <Property Name="ProfessorId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Profname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProfSal" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="ProfessorId" />
+          </Key>
+          <Property Name="ProfessorId" Type="int" Nullable="false" />
+          <Property Name="EmpName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ratings" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="EmpUnique" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TempEmp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Salary" Type="int" Nullable="false" />
+          <Property Name="EmpUnique" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TempF1Drivers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Team" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="S1" Type="float" Nullable="false" />
+          <Property Name="S2" Type="float" Nullable="false" />
+          <Property Name="S3" Type="float" Nullable="false" />
+          <Property Name="S1Pod" Type="int" Nullable="false" />
+          <Property Name="S2Pod" Type="int" Nullable="false" />
+          <Property Name="S3Pod" Type="int" Nullable="false" />
+          <Property Name="Nationality" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TempStudent">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="StdName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Stdcgpa" Type="float" Nullable="false" />
+          <Property Name="StdSem" Type="int" Nullable="false" />
+          <Property Name="ProfId" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TempStudent_Professor">
+          <End Role="Professor" Type="Self.Professor" Multiplicity="1" />
+          <End Role="TempStudent" Type="Self.TempStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professor">
+              <PropertyRef Name="ProfessorId" />
+            </Principal>
+            <Dependent Role="TempStudent">
+              <PropertyRef Name="ProfId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="getAllEmps" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getPlayerX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="plyname" Type="float" Mode="In" />
+        </Function>
+        <Function Name="sp_CalculateF1DriverAvgSpeeds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetAllEmps" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_getEmpsSalaryGtX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sal" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_GetStudentUnderXProfAndYcgpa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="profId" Type="varchar" Mode="In" />
+          <Parameter Name="CGPA" Type="float" Mode="In" />
+        </Function>
+        <EntityContainer Name="PracticeDBModelStoreContainer">
+          <EntitySet Name="Professor" EntityType="Self.Professor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TempEmp" EntityType="Self.TempEmp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TempF1Drivers" EntityType="Self.TempF1Drivers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TempStudent" EntityType="Self.TempStudent" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TempStudent_Professor" Association="Self.FK_TempStudent_Professor">
+            <End Role="Professor" EntitySet="Professor" />
+            <End Role="TempStudent" EntitySet="TempStudent" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PracticeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Professor">
+          <Key>
+            <PropertyRef Name="ProfessorId" />
+          </Key>
+          <Property Name="ProfessorId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Profname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProfSal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TempStudents" Relationship="Self.FK_TempStudent_Professor" FromRole="Professor" ToRole="TempStudent" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="ProfessorId" />
+          </Key>
+          <Property Name="ProfessorId" Type="Int32" Nullable="false" />
+          <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ratings" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="EmpUnique" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TempEmp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Salary" Type="Int32" Nullable="false" />
+          <Property Name="EmpUnique" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TempF1Drivers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Team" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="S1" Type="Double" Nullable="false" />
+          <Property Name="S2" Type="Double" Nullable="false" />
+          <Property Name="S3" Type="Double" Nullable="false" />
+          <Property Name="S1Pod" Type="Int32" Nullable="false" />
+          <Property Name="S2Pod" Type="Int32" Nullable="false" />
+          <Property Name="S3Pod" Type="Int32" Nullable="false" />
+          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TempStudent">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="StdName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Stdcgpa" Type="Double" Nullable="false" />
+          <Property Name="StdSem" Type="Int32" Nullable="false" />
+          <Property Name="ProfId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Professor" Relationship="Self.FK_TempStudent_Professor" FromRole="TempStudent" ToRole="Professor" />
+        </EntityType>
+        <Association Name="FK_TempStudent_Professor">
+          <End Role="Professor" Type="Self.Professor" Multiplicity="1" />
+          <End Role="TempStudent" Type="Self.TempStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professor">
+              <PropertyRef Name="ProfessorId" />
+            </Principal>
+            <Dependent Role="TempStudent">
+              <PropertyRef Name="ProfId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestingDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Professors" EntityType="Self.Professor" />
+          <EntitySet Name="Tables" EntityType="Self.Table" />
+          <EntitySet Name="TempEmps" EntityType="Self.TempEmp" />
+          <EntitySet Name="TempF1Drivers" EntityType="Self.TempF1Drivers" />
+          <EntitySet Name="TempStudents" EntityType="Self.TempStudent" />
+          <AssociationSet Name="FK_TempStudent_Professor" Association="Self.FK_TempStudent_Professor">
+            <End Role="Professor" EntitySet="Professors" />
+            <End Role="TempStudent" EntitySet="TempStudents" />
+          </AssociationSet>
+          <FunctionImport Name="getAllEmps" ReturnType="Collection(PracticeDBModel.getAllEmps_Result)" />
+          <FunctionImport Name="getPlayerX" ReturnType="Collection(PracticeDBModel.getPlayerX_Result)">
+            <Parameter Name="plyname" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="sp_CalculateF1DriverAvgSpeeds" />
+          <FunctionImport Name="sp_GetAllEmps" ReturnType="Collection(PracticeDBModel.sp_GetAllEmps_Result)" />
+          <FunctionImport Name="sp_getEmpsSalaryGtX" ReturnType="Collection(PracticeDBModel.sp_getEmpsSalaryGtX_Result)">
+            <Parameter Name="sal" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetStudentUnderXProfAndYcgpa" ReturnType="Collection(PracticeDBModel.sp_GetStudentUnderXProfAndYcgpa_Result)">
+            <Parameter Name="profId" Mode="In" Type="String" />
+            <Parameter Name="CGPA" Mode="In" Type="Double" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="getAllEmps_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="EmpName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Salary" Nullable="false" />
+          <Property Type="String" Name="EmpUnique" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="getPlayerX_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Team" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="S1" Nullable="false" />
+          <Property Type="Double" Name="S2" Nullable="false" />
+          <Property Type="Double" Name="S3" Nullable="false" />
+          <Property Type="Int32" Name="S1Pod" Nullable="false" />
+          <Property Type="Int32" Name="S2Pod" Nullable="false" />
+          <Property Type="Int32" Name="S3Pod" Nullable="false" />
+          <Property Type="String" Name="Nationality" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_GetAllEmps_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="EmpName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Salary" Nullable="false" />
+          <Property Type="String" Name="EmpUnique" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_getEmpsSalaryGtX_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="EmpName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_GetStudentUnderXProfAndYcgpa_Result">
+          <Property Type="Int32" Name="StudentId" Nullable="false" />
+          <Property Type="String" Name="StdName" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="Stdcgpa" Nullable="false" />
+          <Property Type="Int32" Name="StdSem" Nullable="false" />
+          <Property Type="String" Name="ProfId" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PracticeDBModelStoreContainer" CdmEntityContainer="TestingDBEntities">
+          <EntitySetMapping Name="Professors">
+            <EntityTypeMapping TypeName="PracticeDBModel.Professor">
+              <MappingFragment StoreEntitySet="Professor">
+                <ScalarProperty Name="ProfessorId" ColumnName="ProfessorId" />
+                <ScalarProperty Name="Profname" ColumnName="Profname" />
+                <ScalarProperty Name="ProfSal" ColumnName="ProfSal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="PracticeDBModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="ProfessorId" ColumnName="ProfessorId" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="Ratings" ColumnName="Ratings" />
+                <ScalarProperty Name="EmpUnique" ColumnName="EmpUnique" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TempEmps">
+            <EntityTypeMapping TypeName="PracticeDBModel.TempEmp">
+              <MappingFragment StoreEntitySet="TempEmp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="EmpUnique" ColumnName="EmpUnique" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TempF1Drivers">
+            <EntityTypeMapping TypeName="PracticeDBModel.TempF1Drivers">
+              <MappingFragment StoreEntitySet="TempF1Drivers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="S1" ColumnName="S1" />
+                <ScalarProperty Name="S2" ColumnName="S2" />
+                <ScalarProperty Name="S3" ColumnName="S3" />
+                <ScalarProperty Name="S1Pod" ColumnName="S1Pod" />
+                <ScalarProperty Name="S2Pod" ColumnName="S2Pod" />
+                <ScalarProperty Name="S3Pod" ColumnName="S3Pod" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TempStudents">
+            <EntityTypeMapping TypeName="PracticeDBModel.TempStudent">
+              <MappingFragment StoreEntitySet="TempStudent">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="StdName" ColumnName="StdName" />
+                <ScalarProperty Name="Stdcgpa" ColumnName="Stdcgpa" />
+                <ScalarProperty Name="StdSem" ColumnName="StdSem" />
+                <ScalarProperty Name="ProfId" ColumnName="ProfId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getAllEmps" FunctionName="PracticeDBModel.Store.getAllEmps">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PracticeDBModel.getAllEmps_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="EmpUnique" ColumnName="EmpUnique" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getPlayerX" FunctionName="PracticeDBModel.Store.getPlayerX">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PracticeDBModel.getPlayerX_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="S1" ColumnName="S1" />
+                <ScalarProperty Name="S2" ColumnName="S2" />
+                <ScalarProperty Name="S3" ColumnName="S3" />
+                <ScalarProperty Name="S1Pod" ColumnName="S1Pod" />
+                <ScalarProperty Name="S2Pod" ColumnName="S2Pod" />
+                <ScalarProperty Name="S3Pod" ColumnName="S3Pod" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_CalculateF1DriverAvgSpeeds" FunctionName="PracticeDBModel.Store.sp_CalculateF1DriverAvgSpeeds" />
+          <FunctionImportMapping FunctionImportName="sp_GetAllEmps" FunctionName="PracticeDBModel.Store.sp_GetAllEmps">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PracticeDBModel.sp_GetAllEmps_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="EmpUnique" ColumnName="EmpUnique" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_getEmpsSalaryGtX" FunctionName="PracticeDBModel.Store.sp_getEmpsSalaryGtX">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PracticeDBModel.sp_getEmpsSalaryGtX_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetStudentUnderXProfAndYcgpa" FunctionName="PracticeDBModel.Store.sp_GetStudentUnderXProfAndYcgpa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PracticeDBModel.sp_GetStudentUnderXProfAndYcgpa_Result">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="StdName" ColumnName="StdName" />
+                <ScalarProperty Name="Stdcgpa" ColumnName="Stdcgpa" />
+                <ScalarProperty Name="StdSem" ColumnName="StdSem" />
+                <ScalarProperty Name="ProfId" ColumnName="ProfId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,12 @@
+C:\Programming\Training\c-sharp-practice\NETTraining\NETTraining\Advanced\LINQ-Code_Implementation\LINQPractice01\LINQPractice01\bin\Debug\LINQPractice01.exe.config
+C:\Programming\Training\c-sharp-practice\NETTraining\NETTraining\Advanced\LINQ-Code_Implementation\LINQPractice01\LINQPractice01\bin\Debug\LINQPractice01.exe
+C:\Programming\Training\c-sharp-practice\NETTraining\NETTraining\Advanced\LINQ-Code_Implementation\LINQPractice01\LINQPractice01\bin\Debug\LINQPractice01.pdb
+C:\Programming\Training\c-sharp-practice\NETTraining\NETTraining\Advanced\LINQ-Code_Implementation\LINQPractice01\LINQPractice01\obj\Debug\LINQPractice01.csproj.AssemblyReference.cache
+C:\Programming\Training\c-sharp-practice\NETTraining\NETTraining\Advanced\LINQ-Code_Implementation\LINQPractice01\LINQPractice01\obj\Debug\LINQPractice01.csproj.CoreCompileInputs.cache
+C:\Programming\Training\c-sharp-practice\NETTraining\NETTraining\Advanced\LINQ-Code_Implementation\LINQPractice01\LINQPractice01\obj\Debug\LINQPractice01.exe
+C:\Programming\Training\c-sharp-practice\NETTraining\NETTraining\Advanced\LINQ-Code_Implementation\LINQPractice01\LINQPractice01\obj\Debug\LINQPractice01.pdb
+C:\Programming\Training\c-sharp-practice\NETTraining\NETTraining\Advanced\LINQ-Code_Implementation\LINQPractice01\LINQPractice01\bin\Debug\EntityFramework.dll
+C:\Programming\Training\c-sharp-practice\NETTraining\NETTraining\Advanced\LINQ-Code_Implementation\LINQPractice01\LINQPractice01\bin\Debug\EntityFramework.SqlServer.dll
+C:\Programming\Training\c-sharp-practice\NETTraining\NETTraining\Advanced\LINQ-Code_Implementation\LINQPractice01\LINQPractice01\bin\Debug\EntityFramework.xml
+C:\Programming\Training\c-sharp-practice\NETTraining\NETTraining\Advanced\LINQ-Code_Implementation\LINQPractice01\LINQPractice01\bin\Debug\EntityFramework.SqlServer.xml
+C:\Programming\Training\c-sharp-practice\NETTraining\NETTraining\Advanced\LINQ-Code_Implementation\LINQPractice01\LINQPractice01\obj\Debug\LINQPractice01.csproj.CopyComplete

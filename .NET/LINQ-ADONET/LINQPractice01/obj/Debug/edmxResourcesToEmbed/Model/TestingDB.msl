@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PracticeDBModelStoreContainer" CdmEntityContainer="TestingDBEntities">
+    <EntitySetMapping Name="Professors">
+      <EntityTypeMapping TypeName="PracticeDBModel.Professor">
+        <MappingFragment StoreEntitySet="Professor">
+          <ScalarProperty Name="ProfessorId" ColumnName="ProfessorId" />
+          <ScalarProperty Name="Profname" ColumnName="Profname" />
+          <ScalarProperty Name="ProfSal" ColumnName="ProfSal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="PracticeDBModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="ProfessorId" ColumnName="ProfessorId" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="Ratings" ColumnName="Ratings" />
+          <ScalarProperty Name="EmpUnique" ColumnName="EmpUnique" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempEmps">
+      <EntityTypeMapping TypeName="PracticeDBModel.TempEmp">
+        <MappingFragment StoreEntitySet="TempEmp">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="EmpUnique" ColumnName="EmpUnique" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempF1Drivers">
+      <EntityTypeMapping TypeName="PracticeDBModel.TempF1Drivers">
+        <MappingFragment StoreEntitySet="TempF1Drivers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="S1" ColumnName="S1" />
+          <ScalarProperty Name="S2" ColumnName="S2" />
+          <ScalarProperty Name="S3" ColumnName="S3" />
+          <ScalarProperty Name="S1Pod" ColumnName="S1Pod" />
+          <ScalarProperty Name="S2Pod" ColumnName="S2Pod" />
+          <ScalarProperty Name="S3Pod" ColumnName="S3Pod" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempStudents">
+      <EntityTypeMapping TypeName="PracticeDBModel.TempStudent">
+        <MappingFragment StoreEntitySet="TempStudent">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StdName" ColumnName="StdName" />
+          <ScalarProperty Name="Stdcgpa" ColumnName="Stdcgpa" />
+          <ScalarProperty Name="StdSem" ColumnName="StdSem" />
+          <ScalarProperty Name="ProfId" ColumnName="ProfId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getAllEmps" FunctionName="PracticeDBModel.Store.getAllEmps">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PracticeDBModel.getAllEmps_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="EmpUnique" ColumnName="EmpUnique" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getPlayerX" FunctionName="PracticeDBModel.Store.getPlayerX">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PracticeDBModel.getPlayerX_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="S1" ColumnName="S1" />
+          <ScalarProperty Name="S2" ColumnName="S2" />
+          <ScalarProperty Name="S3" ColumnName="S3" />
+          <ScalarProperty Name="S1Pod" ColumnName="S1Pod" />
+          <ScalarProperty Name="S2Pod" ColumnName="S2Pod" />
+          <ScalarProperty Name="S3Pod" ColumnName="S3Pod" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_CalculateF1DriverAvgSpeeds" FunctionName="PracticeDBModel.Store.sp_CalculateF1DriverAvgSpeeds" />
+    <FunctionImportMapping FunctionImportName="sp_GetAllEmps" FunctionName="PracticeDBModel.Store.sp_GetAllEmps">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PracticeDBModel.sp_GetAllEmps_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="EmpUnique" ColumnName="EmpUnique" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getEmpsSalaryGtX" FunctionName="PracticeDBModel.Store.sp_getEmpsSalaryGtX">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PracticeDBModel.sp_getEmpsSalaryGtX_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetStudentUnderXProfAndYcgpa" FunctionName="PracticeDBModel.Store.sp_GetStudentUnderXProfAndYcgpa">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PracticeDBModel.sp_GetStudentUnderXProfAndYcgpa_Result">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StdName" ColumnName="StdName" />
+          <ScalarProperty Name="Stdcgpa" ColumnName="Stdcgpa" />
+          <ScalarProperty Name="StdSem" ColumnName="StdSem" />
+          <ScalarProperty Name="ProfId" ColumnName="ProfId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
