@@ -1,6 +1,6 @@
 # Delegate
 
-- It is a reference type variable that holds a reference to the methods. 
+- It is a **reference type variable** that holds a reference to the methods. 
 - It is similar to function pointers in C/C++.
 - ***The reference can be changed at runtime***. 
 - These are the **type-safe pointer** of any method.
@@ -86,4 +86,3 @@ Action<string, string> FullName = (firstName, LastName) => Console.WriteLine(fir
 ```
 
 ### Delegate is same to Function Oriented Programming as Interface is to OOPS
-A. 
